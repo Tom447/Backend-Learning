@@ -1,0 +1,18 @@
+# =============== Backend ===============
+backend/target/
+backend/.idea/
+backend/*.iml
+
+# NEVER commit local config
+backend/src/main/resources/application-dev.yml
+
+# NEVER commit test files with secrets
+backend/src/test/java/com/itheima/Demo.java
+
+# =============== Frontend ===============
+frontend/node_modules/
+frontend/dist/
+
+# =============== Shared ===============
+*.log
+.DS_Store

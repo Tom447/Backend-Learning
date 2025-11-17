@@ -1,0 +1,38 @@
+# application.yml —— 纯模板，无任何敏感信息
+
+spring:
+  # 数据库连接（使用环境变量或 dev 配置覆盖）
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/hp02
+    username: ${DB_USERNAME:}
+    password: ${DB_PASSWORD:}
+
+  # 文件上传限制
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 100MB
+
+# MyBatis 配置
+mybatis:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    map-underscore-to-camel-case: true
+
+# PageHelper 分页插件
+pagehelper:
+  helper-dialect: mysql
+  reasonable: true
+
+# 阿里云 OSS 配置（敏感字段由外部注入）
+aliyun:
+  oss:
+    endpoint: ${OSS_ENDPOINT:https://oss-cn-beijing.aliyuncs.com}
+    accessKeyId: ${OSS_ACCESS_KEY_ID:}
+    accessKeySecret: ${OSS_ACCESS_KEY_SECRET:}
+    bucketName: ${OSS_BUCKET_NAME:mawangde01-20250929-204402}
+
+# JWT 配置
+jwt:
+  signKey: ${JWT_SIGN_KEY:default_dev_key_for_local_only}
