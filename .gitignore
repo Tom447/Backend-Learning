@@ -16,3 +16,29 @@ frontend/dist/
 # =============== Shared ===============
 *.log
 .DS_Store
+
+# Ignore IDE and build files
+.idea/
+*.iml
+target/
+**/application-dev.yml
+**/Demo.java
+.DS_Store
+
+# IDE
+.idea/
+*.iml
+.vscode/
+
+# Build
+target/
+
+# Sensitive config (NEVER commit!)
+**/application-dev.yml
+**/application-prod.yml
+**/Demo.java
+
+# Logs & OS
+*.log
+.DS_Store
+Thumbs.db
