@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.itheima.mapper.CustomerMapper">
+
+    <select id="list" resultType="com.itheima.pojo.Customer">
+        select id, name, phone, gender, age, qq, description, create_time,
+        update_time from crm_customer c
+        <where>
+            <if test="name != null and name != ''">
+                c.name like concat('%',#{name},'%')
+            </if>
+            <if test="gender != null">
+                and c.gender = #{gender}
+            </if>
+            <if test="phone != null and phone != ''">
+                and c.phone like concat('%',#{phone},'%')
+            </if>
+            <if test="qq != null and qq != ''">
+                and c.qq like concat('%',#{qq},'%')
+            </if>
+        </where>
+        order by c.update_time desc
+    </select>
+
+    <delete id="delete">
+        delete from crm_customer where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <update id="update">
+        update crm_customer
+        <set>
+            <if test="name != null and name != ''">
+                name = #{name},
+            </if>
+            <if test="phone != null and phone != ''">
+                phone = #{phone},
+            </if>
+            <if test="gender != null">
+                gender = #{gender},
+            </if>
+            <if test="age != null">
+                age = #{age},
+            </if>
+            <if test="qq != null and qq != ''">
+                qq = #{qq},
+            </if>
+            <if test="description != null and description != ''">
+                description = #{description},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+</mapper>
