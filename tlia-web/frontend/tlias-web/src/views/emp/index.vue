@@ -286,10 +286,6 @@ export default {
     },
 
     clear(){
-      this.searchEmp = {name: "", gender: ""};
-      this.beginTime = "",
-      this.endTime = "";
-      this.entrydate = "";
       this.page();
     },
     
