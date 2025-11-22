@@ -1,5 +1,6 @@
 package com.itheima.controller;
 
+import com.itheima.anno.Log;
 import com.itheima.pojo.PageBean;
 import com.itheima.pojo.Result;
 import com.itheima.service.LogService;
@@ -14,6 +15,7 @@ public class LogController {
 
     @Autowired
     LogService  logService;
+
 
     @GetMapping
     public Result page(@RequestParam(defaultValue = "1") Integer page ,

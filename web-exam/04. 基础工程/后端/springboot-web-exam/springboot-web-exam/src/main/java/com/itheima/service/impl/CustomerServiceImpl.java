@@ -72,7 +72,6 @@ public class CustomerServiceImpl implements CustomerService {
         barChartData.setCategoryList(Arrays.asList("0-20", "21-40", "41-60", "61-80", "81以上"));
         Short[] counts = new Short[barChartData.getCategoryList().size()];
         List<Customer> list = customerMapper.getListNoById();
-        System.out.println(list.toArray().toString());
         Arrays.fill(counts,(short)0);
         list.stream().forEach(c ->{
             Short age = c.getAge();

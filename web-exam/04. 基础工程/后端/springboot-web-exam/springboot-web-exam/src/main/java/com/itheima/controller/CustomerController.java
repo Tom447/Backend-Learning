@@ -1,6 +1,7 @@
 package com.itheima.controller;
 
 
+import com.itheima.anno.Log;
 import com.itheima.pojo.BarChartData;
 import com.itheima.pojo.Customer;
 import com.itheima.pojo.PageBean;
@@ -32,6 +33,7 @@ public class CustomerController {
      * @param pageSize
      * @return
      */
+    @Log
     @GetMapping
     public Result page(String name, Integer gender, String phone, String qq,
                        @RequestParam(defaultValue = "1") Integer page ,
@@ -45,6 +47,7 @@ public class CustomerController {
      * @param ids
      * @return
      */
+    @Log
     @DeleteMapping("/{ids}")
     public Result delete(@PathVariable List<Integer> ids){
         customerService.delete(ids);
@@ -56,6 +59,7 @@ public class CustomerController {
      * @param customer
      * @return
      */
+    @Log
     @PostMapping
     public Result save(@RequestBody Customer customer){
         customerService.save(customer);
@@ -67,6 +71,7 @@ public class CustomerController {
      * @param id
      * @return
      */
+    @Log
     @GetMapping("/{id}")
     public Result getInfo(@PathVariable Integer id){
         Customer customer = customerService.getById(id);
@@ -79,6 +84,7 @@ public class CustomerController {
      * @param customer
      * @return
      */
+    @Log
     @PutMapping
     public Result update(@RequestBody Customer customer){
         customerService.update(customer);
@@ -89,6 +95,7 @@ public class CustomerController {
      * 各个年龄段年龄统计
      * @return
      */
+    @Log
     @GetMapping("/ageReport")
     public Result ageReport(){
         BarChartData barChartData = customerService.ageReport();

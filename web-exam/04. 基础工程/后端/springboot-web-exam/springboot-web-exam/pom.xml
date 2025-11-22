@@ -71,6 +71,13 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.76</version>
         </dependency>
+
+        <!-- Yauaa：高精度 User-Agent 解析 -->
+        <dependency>
+            <groupId>nl.basjes.parse.useragent</groupId>
+            <artifactId>yauaa</artifactId>
+            <version>6.10</version>
+        </dependency>
     </dependencies>
 
     <build>
